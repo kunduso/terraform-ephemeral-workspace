@@ -14,7 +14,7 @@ Before you begin, ensure you have the following:
 1. Please learn about [HCP Terraform](https://developer.hashicorp.com/terraform/cloud-docs)
 2. Clone this repository
 3. Please study the steps listed in the note - [Provision AWS resources with GitHub and HCP Terraform](http://skundunotes.com/2025/01/03/provision-aws-resources-with-github-and-hcp-terraform/)
-4. Follow the detailed steps in the note - [Getting started with Ephemeral workspaces in HCP Terraform](https://skundunotes.com/2025/02/21/getting-started-with-ephemeral-workspaces-in-hcp-terraform/).
+4. Follow the detailed steps in the note - [Getting started with Ephemeral workspaces in HCP Terraform](https://skundunotes.com/2025/02/20/getting-started-with-ephemeral-workspaces-in-hcp-terraform/).
 
 ## Troubleshooting
 If you encounter issues:
