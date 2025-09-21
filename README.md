@@ -1,3 +1,6 @@
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-white.svg)](https://choosealicense.com/licenses/unlicense/) [![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/kunduso/terraform-ephemeral-workspace)](https://github.com/kunduso/terraform-ephemeral-workspace/pulls?q=is%3Apr+is%3Aclosed) [![GitHub pull-requests](https://img.shields.io/github/issues-pr/kunduso/terraform-ephemeral-workspace)](https://GitHub.com/kunduso/terraform-ephemeral-workspace/pull/) 
+[![GitHub issues-closed](https://img.shields.io/github/issues-closed/kunduso/terraform-ephemeral-workspace)](https://github.com/kunduso/terraform-ephemeral-workspace/issues?q=is%3Aissue+is%3Aclosed) [![GitHub issues](https://img.shields.io/github/issues/kunduso/terraform-ephemeral-workspace)](https://GitHub.com/kunduso/terraform-ephemeral-workspace/issues/) 
+[![terraform-infra-provisioning](https://github.com/kunduso/terraform-ephemeral-workspace/actions/workflows/terraform.yml/badge.svg?branch=main)](https://github.com/kunduso/terraform-ephemeral-workspace/actions/workflows/terraform.yml) 
 # Learn HCP Terraform Ephemeral Workspace
 ![Image](https://skdevops.files.wordpress.com/2025/02/111-image-0.png)
 ## Introduction
