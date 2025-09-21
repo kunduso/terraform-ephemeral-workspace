@@ -17,7 +17,7 @@ resource "tfe_workspace" "ephemeral_demo" {
   tag_names = [
     "ephemeral",
     "demo",
-    "hashitalk-2025"
+    "hashiconf-2025"
   ]
 }
 
