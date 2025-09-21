@@ -1,4 +1,4 @@
-resource "tfe_workspace" "ephemeral_demo" {
+resource "tfe_workspace" "ephemeral" {
   name              = var.workspace_name
   organization      = var.organization_name
   auto_apply        = true
@@ -32,7 +32,7 @@ resource "tfe_variable" "aws_access_key" {
   key          = "access_key"
   value        = var.aws_access_key
   category     = "terraform"
-  workspace_id = tfe_workspace.ephemeral_demo.id
+  workspace_id = tfe_workspace.ephemeral.id
   sensitive    = true
 }
 
@@ -40,7 +40,7 @@ resource "tfe_variable" "aws_secret_key" {
   key          = "secret_key"
   value        = var.aws_secret_key
   category     = "terraform"
-  workspace_id = tfe_workspace.ephemeral_demo.id
+  workspace_id = tfe_workspace.ephemeral.id
   sensitive    = true
 }
 
@@ -48,5 +48,5 @@ resource "tfe_variable" "aws_region" {
   key          = "region"
   value        = var.aws_region
   category     = "terraform"
-  workspace_id = tfe_workspace.ephemeral_demo.id
+  workspace_id = tfe_workspace.ephemeral.id
 }
