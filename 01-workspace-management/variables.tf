@@ -1,7 +1,7 @@
 variable "organization_name" {
   description = "HCP Terraform organization name"
   type        = string
-  default     = "wellysiau-org"
+  default     = "wellsiau-org"
 }
 
 variable "workspace_name" {
