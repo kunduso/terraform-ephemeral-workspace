@@ -3,8 +3,8 @@ variable "aws_role_arn" {
   type        = string
 }
 
-# variable "aws_region" {
-#   description = "AWS region for the ephemeral workspace"
-#   type        = string
-#   default     = "us-east-2"
-# }
+variable "aws_region" {
+  description = "AWS region for the ephemeral workspace"
+  type        = string
+  default     = "us-west-2"
+}
