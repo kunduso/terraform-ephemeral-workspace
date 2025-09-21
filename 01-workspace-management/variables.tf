@@ -27,3 +27,10 @@ variable "working_directory" {
   type        = string
   default     = "02-infrastructure"
 }
+
+variable "oauth_client_name" {
+  description = "Name of the OAuth client in HCP Terraform"
+  type        = string
+  default     = "kunduso"
+}
+

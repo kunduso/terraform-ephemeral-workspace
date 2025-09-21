@@ -5,6 +5,7 @@ resource "tfe_workspace" "ephemeral" {
   queue_all_runs    = false
   working_directory = var.working_directory
 
+
   # Enable ephemeral workspace with auto-destroy
   auto_destroy_activity_duration = var.auto_destroy_duration
 
@@ -24,7 +25,7 @@ resource "tfe_workspace" "ephemeral" {
 # Get OAuth client for GitHub integration
 data "tfe_oauth_client" "github" {
   organization = var.organization_name
-  name         = "GitHub"
+  name         = var.oauth_client_name
 }
 
 # Workspace variables for AWS IAM role
