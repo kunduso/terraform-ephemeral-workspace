@@ -28,9 +28,8 @@ variable "working_directory" {
   default     = "02-infrastructure"
 }
 
-variable "oauth_client_name" {
-  description = "Name of the OAuth client in HCP Terraform"
+variable "oauth_token_id" {
+  description = "OAuth token ID for GitHub VCS integration"
   type        = string
-  default     = "kunduso"
 }
 

@@ -12,7 +12,7 @@ resource "tfe_workspace" "ephemeral" {
   vcs_repo {
     identifier     = var.github_repo
     branch         = "main"
-    oauth_token_id = data.tfe_oauth_client.github.oauth_token_id
+    oauth_token_id = var.oauth_token_id
   }
 
   tag_names = [
@@ -22,11 +22,7 @@ resource "tfe_workspace" "ephemeral" {
   ]
 }
 
-# Get OAuth client for GitHub integration
-data "tfe_oauth_client" "github" {
-  organization = var.organization_name
-  name         = var.oauth_client_name
-}
+
 
 # Workspace variables for AWS IAM role
 resource "tfe_variable" "aws_role_auth" {
