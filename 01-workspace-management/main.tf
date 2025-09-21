@@ -27,21 +27,19 @@ data "tfe_oauth_client" "github" {
   name         = "GitHub"
 }
 
-# Workspace variables for AWS credentials
-resource "tfe_variable" "aws_access_key" {
-  key          = "access_key"
-  value        = var.aws_access_key
-  category     = "terraform"
+# Workspace variables for AWS IAM role
+resource "tfe_variable" "aws_role_auth" {
+  key          = "TFC_AWS_PROVIDER_AUTH"
+  value        = "true"
+  category     = "env"
   workspace_id = tfe_workspace.ephemeral.id
-  sensitive    = true
 }
 
-resource "tfe_variable" "aws_secret_key" {
-  key          = "secret_key"
-  value        = var.aws_secret_key
-  category     = "terraform"
+resource "tfe_variable" "aws_role_arn" {
+  key          = "TFC_AWS_RUN_ROLE_ARN"
+  value        = var.aws_role_arn
+  category     = "env"
   workspace_id = tfe_workspace.ephemeral.id
-  sensitive    = true
 }
 
 resource "tfe_variable" "aws_region" {

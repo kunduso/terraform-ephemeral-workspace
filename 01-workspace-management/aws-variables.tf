@@ -1,17 +1,10 @@
-variable "aws_access_key" {
-  description = "AWS access key for the ephemeral workspace"
+variable "aws_role_arn" {
+  description = "AWS IAM role ARN for the ephemeral workspace"
   type        = string
-  sensitive   = true
 }
 
-variable "aws_secret_key" {
-  description = "AWS secret key for the ephemeral workspace"
-  type        = string
-  sensitive   = true
-}
-
-variable "aws_region" {
-  description = "AWS region for the ephemeral workspace"
-  type        = string
-  default     = "us-east-2"
-}
+# variable "aws_region" {
+#   description = "AWS region for the ephemeral workspace"
+#   type        = string
+#   default     = "us-east-2"
+# }
