@@ -33,3 +33,9 @@ variable "oauth_token_id" {
   type        = string
 }
 
+variable "project_id" {
+  description = "HCP Terraform project ID"
+  type        = string
+  default     = null
+}
+
