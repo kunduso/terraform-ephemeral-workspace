@@ -2,7 +2,7 @@
 resource "tfe_workspace" "ephemeral" {
   name         = var.workspace_name
   organization = var.organization_name
-  # project_id        = var.project_id
+  project_id   = var.project_id
   # auto_apply        = true
   # queue_all_runs    = false
   # working_directory = var.working_directory
