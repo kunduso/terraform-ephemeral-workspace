@@ -107,4 +107,7 @@ jobs:
 
     - name: Terraform Import
       run: |
-        terraform import tfe_workspace.ephemeral ws-waoXRA9tKaxETDTe
+        terraform import \
+        -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
+        -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
+        tfe_workspace.ephemeral ws-waoXRA9tKaxETDTe
