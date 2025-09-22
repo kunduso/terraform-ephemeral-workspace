@@ -20,14 +20,14 @@ resource "tfe_workspace" "ephemeral" {
   }
 }
 
-# # Workspace variables for AWS IAM role
-# #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
-# resource "tfe_variable" "aws_role_auth" {
-#   key          = "TFC_AWS_PROVIDER_AUTH"
-#   value        = "true"
-#   category     = "teraform"
-#   workspace_id = "ws-waoXRA9tKaxETDTe"
-# }
+# Workspace variables for AWS IAM role
+#https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
+resource "tfe_variable" "aws_role_auth" {
+  key          = "TFC_AWS_PROVIDER_AUTH"
+  value        = "true"
+  category     = "terraform"
+  workspace_id = data.tfe_workspace.test.id
+}
 
 # #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
 # resource "tfe_variable" "aws_role_arn" {
