@@ -1,3 +1,9 @@
+# Test if workspace can be read
+data "tfe_workspace" "test" {
+  name         = "hallaway-track-hashiconf-2025"
+  organization = "wellsiau-org"
+}
+
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
   name                  = var.workspace_name
@@ -14,27 +20,27 @@ resource "tfe_workspace" "ephemeral" {
   }
 }
 
-# Workspace variables for AWS IAM role
-#https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
-resource "tfe_variable" "aws_role_auth" {
-  key          = "TFC_AWS_PROVIDER_AUTH"
-  value        = "true"
-  category     = "env"
-  workspace_id = "ws-waoXRA9tKaxETDTe"
-}
+# # Workspace variables for AWS IAM role
+# #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
+# resource "tfe_variable" "aws_role_auth" {
+#   key          = "TFC_AWS_PROVIDER_AUTH"
+#   value        = "true"
+#   category     = "teraform"
+#   workspace_id = "ws-waoXRA9tKaxETDTe"
+# }
 
-#https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
-resource "tfe_variable" "aws_role_arn" {
-  key          = "TFC_AWS_RUN_ROLE_ARN"
-  value        = var.aws_role_arn
-  category     = "env"
-  workspace_id = "ws-waoXRA9tKaxETDTe"
-}
+# #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
+# resource "tfe_variable" "aws_role_arn" {
+#   key          = "TFC_AWS_RUN_ROLE_ARN"
+#   value        = var.aws_role_arn
+#   category     = "terraform"
+#   workspace_id = "ws-waoXRA9tKaxETDTe"
+# }
 
-#https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
-resource "tfe_variable" "aws_region" {
-  key          = "region"
-  value        = var.aws_region
-  category     = "terraform"
-  workspace_id = "ws-waoXRA9tKaxETDTe"
-}
+# #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
+# resource "tfe_variable" "aws_region" {
+#   key          = "region"
+#   value        = var.aws_region
+#   category     = "terraform"
+#   workspace_id = "ws-waoXRA9tKaxETDTe"
+# }
