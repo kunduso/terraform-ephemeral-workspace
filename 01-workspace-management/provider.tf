@@ -1,6 +1,10 @@
 terraform {
   cloud {
     organization = "wellsiau-org"
+
+    workspaces {
+      name = "workspace-manager"
+    }
   }
 
   required_providers {
