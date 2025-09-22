@@ -98,9 +98,15 @@ jobs:
     #         body: output
     #       })
 
-    - name: Terraform Apply
-      # if: github.ref == 'refs/heads/main'
+    - name: Check Workspace Variables
       run: |
-        terraform apply -auto-approve -input=false \
-        -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
-        -var="github_app_installation_id=${{ secrets.INSTALLATION_ID }}"
+        echo "Checking if variables exist in workspace ws-waoXRA9tKaxETDTe"
+        curl -s -H "Authorization: Bearer ${{ secrets.TF_API_TOKEN }}" \
+        "https://app.terraform.io/api/v2/workspaces/ws-waoXRA9tKaxETDTe/vars" | jq .
+
+    # - name: Terraform Apply
+    #   # if: github.ref == 'refs/heads/main'
+    #   run: |
+    #     terraform apply -auto-approve -input=false \
+    #     -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
+    #     -var="github_app_installation_id=${{ secrets.INSTALLATION_ID }}"
