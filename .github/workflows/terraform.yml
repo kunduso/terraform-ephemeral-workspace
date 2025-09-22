@@ -60,13 +60,13 @@ jobs:
     #   id: validate
     #   run: terraform validate -no-color
 
-    # - name: Terraform Plan
-    #   id: plan
-    #   if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
-    #   run: |
-    #     terraform plan -no-color -input=false \
-    #     -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
-    #     -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}"
+    - name: Terraform Plan
+      id: plan
+      if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
+      run: |
+        terraform plan -no-color -input=false \
+        -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
+        -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}"
 
     # - name: Post Terraform Plan output
     #   uses: actions/github-script@v6
@@ -104,10 +104,3 @@ jobs:
     #     terraform apply -auto-approve -input=false \
     #     -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
     #     -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}"
-
-    - name: Terraform Import
-      run: |
-        terraform import \
-        -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
-        -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
-        tfe_workspace.ephemeral ws-waoXRA9tKaxETDTe
