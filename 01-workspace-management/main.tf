@@ -1,6 +1,6 @@
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
-  name              = var.workspace_name
+  name = var.workspace_name
   # organization      = var.organization_name
   # project_id        = var.project_id
   # auto_apply        = true
