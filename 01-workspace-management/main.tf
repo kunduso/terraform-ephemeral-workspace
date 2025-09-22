@@ -1,27 +1,27 @@
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
   name              = var.workspace_name
-  organization      = var.organization_name
-  project_id        = var.project_id
-  auto_apply        = true
-  queue_all_runs    = false
-  working_directory = var.working_directory
+  # organization      = var.organization_name
+  # project_id        = var.project_id
+  # auto_apply        = true
+  # queue_all_runs    = false
+  # working_directory = var.working_directory
 
 
-  # Enable ephemeral workspace with auto-destroy
-  auto_destroy_activity_duration = var.auto_destroy_duration
+  # # Enable ephemeral workspace with auto-destroy
+  # auto_destroy_activity_duration = var.auto_destroy_duration
 
-  vcs_repo {
-    identifier     = var.github_repo
-    branch         = "main"
-    oauth_token_id = var.oauth_token_id
-  }
+  # vcs_repo {
+  #   identifier     = var.github_repo
+  #   branch         = "main"
+  #   oauth_token_id = var.oauth_token_id
+  # }
 
-  tag_names = [
-    "ephemeral",
-    "demo",
-    "hashiconf-2025"
-  ]
+  # tag_names = [
+  #   "ephemeral",
+  #   "demo",
+  #   "hashiconf-2025"
+  # ]
 }
 
 # Workspace variables for AWS IAM role
