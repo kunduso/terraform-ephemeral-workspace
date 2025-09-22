@@ -20,7 +20,7 @@ resource "tfe_variable" "aws_role_auth" {
   key          = "TFC_AWS_PROVIDER_AUTH"
   value        = "true"
   category     = "env"
-  workspace_id = tfe_workspace.ephemeral.id
+  workspace_id = "ws-waoXRA9tKaxETDTe"
 }
 
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
@@ -28,7 +28,7 @@ resource "tfe_variable" "aws_role_arn" {
   key          = "TFC_AWS_RUN_ROLE_ARN"
   value        = var.aws_role_arn
   category     = "env"
-  workspace_id = tfe_workspace.ephemeral.id
+  workspace_id = "ws-waoXRA9tKaxETDTe"
 }
 
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
@@ -36,5 +36,5 @@ resource "tfe_variable" "aws_region" {
   key          = "region"
   value        = var.aws_region
   category     = "terraform"
-  workspace_id = tfe_workspace.ephemeral.id
+  workspace_id = "ws-waoXRA9tKaxETDTe"
 }
