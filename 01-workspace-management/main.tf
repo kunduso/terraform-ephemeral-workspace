@@ -1,8 +1,17 @@
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
-  name         = var.workspace_name
-  organization = var.organization_name
-  project_id   = var.project_id
+  name                  = var.workspace_name
+  organization          = var.organization_name
+  project_id            = var.project_id
+  working_directory     = var.working_directory
+  queue_all_runs        = false
+  file_triggers_enabled = false
+  force_delete          = false
+  vcs_repo {
+    identifier                 = var.github_repo
+    ingress_submodules         = false
+    github_app_installation_id = var.github_app_installation_id
+  }
 }
 
 # Workspace variables for AWS IAM role
