@@ -1,13 +1,13 @@
 variable "organization_name" {
   description = "HCP Terraform organization name"
   type        = string
-  default     = "wellysiau-org"
+  default     = "wellsiau-org"
 }
 
 variable "workspace_name" {
   description = "Name for the ephemeral workspace"
   type        = string
-  default     = "hallaway-track-hashiconf-2025"
+  default     = "hallway-track-hashiconf-2025"
 }
 
 variable "auto_destroy_duration" {
@@ -33,3 +33,12 @@ variable "oauth_token_id" {
   type        = string
 }
 
+variable "project_id" {
+  description = "HCP Terraform project ID"
+  type        = string
+  default     = "prj-dtD69e5CJERnbuxz"
+}
+
+variable "tfe_token" {
+  type = string
+}

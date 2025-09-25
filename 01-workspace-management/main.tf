@@ -1,26 +1,21 @@
+
+
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
-  name              = var.workspace_name
-  organization      = var.organization_name
-  auto_apply        = true
-  queue_all_runs    = false
-  working_directory = var.working_directory
-
-
-  # Enable ephemeral workspace with auto-destroy
-  auto_destroy_activity_duration = var.auto_destroy_duration
-
+  name                           = var.workspace_name
+  organization                   = var.organization_name
+  working_directory              = var.working_directory
+  project_id                     = var.project_id
+  queue_all_runs                 = false
+  file_triggers_enabled          = false
+  force_delete                   = false
+  auto_destroy_activity_duration = "1h"
   vcs_repo {
-    identifier     = var.github_repo
-    branch         = "main"
-    oauth_token_id = var.oauth_token_id
+    identifier         = var.github_repo
+    oauth_token_id     = var.oauth_token_id
+    branch             = "main"
+    ingress_submodules = false
   }
-
-  tag_names = [
-    "ephemeral",
-    "demo",
-    "hashiconf-2025"
-  ]
 }
 
 # Workspace variables for AWS IAM role
@@ -28,7 +23,7 @@ resource "tfe_workspace" "ephemeral" {
 resource "tfe_variable" "aws_role_auth" {
   key          = "TFC_AWS_PROVIDER_AUTH"
   value        = "true"
-  category     = "env"
+  category     = "terraform"
   workspace_id = tfe_workspace.ephemeral.id
 }
 
@@ -36,7 +31,7 @@ resource "tfe_variable" "aws_role_auth" {
 resource "tfe_variable" "aws_role_arn" {
   key          = "TFC_AWS_RUN_ROLE_ARN"
   value        = var.aws_role_arn
-  category     = "env"
+  category     = "terraform"
   workspace_id = tfe_workspace.ephemeral.id
 }
 
