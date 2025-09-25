@@ -12,7 +12,6 @@ resource "tfe_workspace" "ephemeral" {
   vcs_repo {
     identifier                 = var.github_repo
     ingress_submodules         = false
-    github_app_installation_id = var.github_app_installation_id
   }
 }
 
