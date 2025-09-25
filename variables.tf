@@ -22,11 +22,7 @@ variable "github_repo" {
   default     = "kunduso/terraform-ephemeral-workspace"
 }
 
-variable "working_directory" {
-  description = "Working directory in the repository"
-  type        = string
-  default     = "02-infrastructure"
-}
+
 
 variable "oauth_token_id" {
   description = "OAuth token ID for GitHub VCS integration"
