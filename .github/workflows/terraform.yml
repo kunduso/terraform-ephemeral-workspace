@@ -37,6 +37,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
+      
     - name: Setup HCP Terraform credentials
       run: |
         mkdir -p ~/.terraform.d
