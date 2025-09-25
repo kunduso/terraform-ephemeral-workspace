@@ -26,7 +26,7 @@ resource "tfe_variable" "aws_role_auth" {
   key          = "TFC_AWS_PROVIDER_AUTH"
   value        = "true"
   category     = "terraform"
-  workspace_id = data.tfe_workspace.test.id
+  workspace_id = tfe_workspace.ephemeral.id
 }
 
 # #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
