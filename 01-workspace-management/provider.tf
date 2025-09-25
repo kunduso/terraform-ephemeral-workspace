@@ -20,4 +20,5 @@ provider "tfe" {
   # Configuration will be provided via environment variables:
   # TFE_TOKEN - HCP Terraform API token
   # TFE_HOSTNAME - defaults to app.terraform.io
+  token = var.tfe_token
 }

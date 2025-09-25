@@ -40,3 +40,6 @@ variable "project_id" {
   default = "prj-RjKD6jscfCv1Y3aD"
 }
 
+variable "tfe_token" {
+  type        = string
+}
