@@ -1,8 +1,4 @@
-# Test if workspace can be read
-data "tfe_workspace" "test" {
-  name         = "hallaway-track-hashiconf-2025"
-  organization = "wellsiau-org"
-}
+
 
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
