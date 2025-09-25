@@ -7,13 +7,14 @@ resource "tfe_workspace" "ephemeral" {
   working_directory              = var.working_directory
   project_id                     = var.project_id
   queue_all_runs                 = false
-  file_triggers_enabled          = false
+  file_triggers_enabled          = true
   force_delete                   = false
   auto_destroy_activity_duration = "1h"
+  auto_apply                     = true
+  speculative_enabled            = true
   vcs_repo {
-    identifier         = var.github_repo
+    identifier         = "kunduso/ec2-userdata-terraform"
     oauth_token_id     = var.oauth_token_id
-    branch             = "main"
     ingress_submodules = false
   }
 }
