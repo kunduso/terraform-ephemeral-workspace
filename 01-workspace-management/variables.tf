@@ -28,8 +28,8 @@ variable "working_directory" {
   default     = "02-infrastructure"
 }
 
-variable "github_app_installation_id" {
-  description = "GitHub App Installation ID for GitHub VCS integration"
+variable "oauth_token_id" {
+  description = "OAuth token ID for GitHub VCS integration"
   type        = string
 }
 

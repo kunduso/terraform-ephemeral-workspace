@@ -11,6 +11,7 @@ resource "tfe_workspace" "ephemeral" {
   force_delete          = false
   vcs_repo {
     identifier                 = var.github_repo
+    oauth_token_id            = var.oauth_token_id
     ingress_submodules         = false
   }
 }
