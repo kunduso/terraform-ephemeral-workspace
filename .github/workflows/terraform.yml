@@ -28,7 +28,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: '01-workspace-management'
 
     steps:
     - name: Checkout
