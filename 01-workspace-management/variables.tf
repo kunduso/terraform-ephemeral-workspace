@@ -36,6 +36,7 @@ variable "github_app_installation_id" {
 variable "project_id" {
   description = "HCP Terraform project ID"
   type        = string
-  default     = "prj-dtD69e5CJERnbuxz"
+  # default     = "prj-dtD69e5CJERnbuxz"
+  default = "prj-RjKD6jscfCv1Y3aD"
 }
 
