@@ -17,6 +17,8 @@ permissions: read-all
 
 jobs:
   terraform:
+    env:
+      TFE_TOKEN: ${{ secrets.TF_API_TOKEN }}
     name: 'hcp-terraform-workspace-management'
     runs-on: ubuntu-latest
     environment: development
@@ -35,18 +37,18 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
-    - name: Setup HCP Terraform credentials
-      run: |
-        mkdir -p ~/.terraform.d
-        cat > ~/.terraform.d/credentials.tfrc.json << EOF
-        {
-          "credentials": {
-            "app.terraform.io": {
-              "token": "${{ secrets.TF_API_TOKEN }}"
-            }
-          }
-        }
-        EOF
+    # - name: Setup HCP Terraform credentials
+    #   run: |
+    #     mkdir -p ~/.terraform.d
+    #     cat > ~/.terraform.d/credentials.tfrc.json << EOF
+    #     {
+    #       "credentials": {
+    #         "app.terraform.io": {
+    #           "token": "${{ secrets.TF_API_TOKEN }}"
+    #         }
+    #       }
+    #     }
+    #     EOF
 
     - name: Terraform Init
       id: init
