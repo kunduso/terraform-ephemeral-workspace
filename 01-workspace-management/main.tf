@@ -2,16 +2,18 @@
 
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
-  name                  = var.workspace_name
-  organization          = var.organization_name
-  working_directory     = var.working_directory
-  queue_all_runs        = false
-  file_triggers_enabled = false
-  force_delete          = false
+  name                           = var.workspace_name
+  organization                   = var.organization_name
+  working_directory              = var.working_directory
+  queue_all_runs                 = false
+  file_triggers_enabled          = false
+  force_delete                   = false
+  auto_destroy_activity_duration = "1h"
   vcs_repo {
-    identifier                 = var.github_repo
-    oauth_token_id            = var.oauth_token_id
-    ingress_submodules         = false
+    identifier         = var.github_repo
+    oauth_token_id     = var.oauth_token_id
+    branch             = "main"
+    ingress_submodules = false
   }
 }
 

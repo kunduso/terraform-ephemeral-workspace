@@ -41,5 +41,5 @@ variable "project_id" {
 }
 
 variable "tfe_token" {
-  type        = string
+  type = string
 }
