@@ -36,8 +36,7 @@ variable "oauth_token_id" {
 variable "project_id" {
   description = "HCP Terraform project ID"
   type        = string
-  # default     = "prj-dtD69e5CJERnbuxz"
-  default = "prj-RjKD6jscfCv1Y3aD"
+  default     = "prj-dtD69e5CJERnbuxz"
 }
 
 variable "tfe_token" {
