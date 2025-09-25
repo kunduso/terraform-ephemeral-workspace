@@ -7,7 +7,7 @@ variable "organization_name" {
 variable "workspace_name" {
   description = "Name for the ephemeral workspace"
   type        = string
-  default     = "hallaway-track-hashiconf-2025"
+  default     = "hallway-track-hashiconf-2025"
 }
 
 variable "auto_destroy_duration" {
