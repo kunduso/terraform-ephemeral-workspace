@@ -15,7 +15,6 @@ resource "tfe_workspace" "ephemeral" {
     identifier         = var.github_repo
     oauth_token_id     = var.oauth_token_id
     ingress_submodules = false
-    tags_regex         = ".*"
   }
 }
 
