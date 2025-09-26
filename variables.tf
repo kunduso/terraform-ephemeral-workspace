@@ -22,6 +22,12 @@ variable "github_repo" {
   default     = "kunduso/app-two"
 }
 
+variable "working_directory" {
+  description = "Working directory in the repository"
+  type        = string
+  default     = "infrastructure"
+}
+
 
 
 variable "oauth_token_id" {
