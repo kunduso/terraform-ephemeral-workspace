@@ -19,7 +19,7 @@ variable "auto_destroy_duration" {
 variable "github_repo" {
   description = "GitHub repository for VCS integration"
   type        = string
-  default     = "kunduso/terraform-ephemeral-workspace"
+  default     = "kunduso/app-two"
 }
 
 

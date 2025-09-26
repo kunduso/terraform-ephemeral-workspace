@@ -12,7 +12,7 @@ resource "tfe_workspace" "ephemeral" {
   auto_apply                     = true
   speculative_enabled            = true
   vcs_repo {
-    identifier         = "kunduso/ec2-userdata-terraform"
+    identifier         = var.github_repo
     oauth_token_id     = var.oauth_token_id
     ingress_submodules = false
   }
@@ -31,6 +31,14 @@ resource "tfe_variable" "aws_role_auth" {
 resource "tfe_variable" "aws_role_arn" {
   key          = "TFC_AWS_RUN_ROLE_ARN"
   value        = var.aws_role_arn
+  category     = "env"
+  workspace_id = tfe_workspace.ephemeral.id
+}
+
+#https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
+resource "tfe_variable" "aws_workload_identity_audience" {
+  key          = "TFC_AWS_WORKLOAD_IDENTITY_AUDIENCE"
+  value        = "aws.workload.identity"
   category     = "env"
   workspace_id = tfe_workspace.ephemeral.id
 }
