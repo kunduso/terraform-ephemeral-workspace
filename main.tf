@@ -7,7 +7,6 @@ resource "tfe_workspace" "ephemeral" {
   working_directory              = var.working_directory
   project_id                     = var.project_id
   queue_all_runs                 = false
-  file_triggers_enabled          = true
   force_delete                   = false
   auto_destroy_activity_duration = "1h"
   auto_apply                     = true
