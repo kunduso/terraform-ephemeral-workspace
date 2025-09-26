@@ -4,6 +4,7 @@
 resource "tfe_workspace" "ephemeral" {
   name                           = var.workspace_name
   organization                   = var.organization_name
+  working_directory              = var.working_directory
   project_id                     = var.project_id
   queue_all_runs                 = false
   file_triggers_enabled          = true
