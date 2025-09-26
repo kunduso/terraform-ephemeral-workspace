@@ -1,5 +1,3 @@
-
-
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
   name                           = var.workspace_name
