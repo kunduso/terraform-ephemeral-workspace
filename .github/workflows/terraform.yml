@@ -67,7 +67,6 @@ jobs:
       if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
       run: |
         terraform plan -no-color -input=false \
-        -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
         -var="github_app_installation_id=${{ secrets.INSTALLATION_ID }}"
 
     # - name: Post Terraform Plan output
@@ -103,5 +102,4 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: |
         terraform apply -auto-approve -input=false \
-        -var="aws_role_arn=${{ secrets.AWS_ROLE_ARN_FOR_TERRAFORM_WORKSPACE }}" \
         -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}"
