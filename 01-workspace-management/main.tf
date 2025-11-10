@@ -29,8 +29,8 @@ resource "tfe_variable" "aws_role_auth" {
 
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable
 resource "tfe_variable" "aws_role_arn" {
-  key          = "TFC_AWS_RUN_ROLE_ARN"
-  value        = var.aws_role_arn
+  key = "TFC_AWS_RUN_ROLE_ARN"
+  value        = aws_iam_role.ephemeral_workspace.arn
   category     = "terraform"
   workspace_id = tfe_workspace.ephemeral.id
 }
