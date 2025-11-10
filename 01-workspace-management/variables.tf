@@ -40,6 +40,17 @@ variable "project_id" {
 }
 
 variable "tfe_token" {
-  type = string
+  type    = string
   default = null
+}
+
+variable "github_app_installation_id" {
+  description = "GitHub App installation ID for VCS integration"
+  type        = string
+}
+
+variable "aws_region" {
+  description = "AWS region for resources"
+  type        = string
+  default     = null
 }
