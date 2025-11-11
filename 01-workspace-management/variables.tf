@@ -31,6 +31,7 @@ variable "working_directory" {
 variable "oauth_token_id" {
   description = "OAuth token ID for GitHub VCS integration"
   type        = string
+  default     = null
 }
 
 variable "project_id" {
