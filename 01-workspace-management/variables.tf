@@ -45,10 +45,7 @@ variable "tfe_token" {
   default = null
 }
 
-variable "github_app_installation_id" {
-  description = "GitHub App installation ID for VCS integration"
-  type        = string
-}
+
 
 variable "aws_region" {
   description = "AWS region for resources"
