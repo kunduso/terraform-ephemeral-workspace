@@ -13,9 +13,7 @@ on:
       - '.github/workflows/terraform.yml'
       - '01-workspace-management/**'
 
-permissions:
-  id-token: write
-  contents: read
+permissions: read-all
 
 jobs:
   terraform:
@@ -53,7 +51,7 @@ jobs:
         }
         EOF
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v1-node16
       with:
         role-to-assume: ${{ secrets.IAM_ROLE }}
         role-session-name: GitHubActions
