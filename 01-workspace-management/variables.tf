@@ -50,5 +50,26 @@ variable "tfe_token" {
 variable "aws_region" {
   description = "AWS region for resources"
   type        = string
+  default     = "us-east-2"
+}
+
+variable "aws_access_key_id" {
+  description = "AWS access key ID from GitHub Actions"
+  type        = string
   default     = null
+  sensitive   = true
+}
+
+variable "aws_secret_access_key" {
+  description = "AWS secret access key from GitHub Actions"
+  type        = string
+  default     = null
+  sensitive   = true
+}
+
+variable "aws_session_token" {
+  description = "AWS session token from GitHub Actions"
+  type        = string
+  default     = null
+  sensitive   = true
 }
