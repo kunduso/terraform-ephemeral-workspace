@@ -74,7 +74,10 @@ jobs:
       if: github.ref != 'refs/heads/main' || github.event_name == 'pull_request'
       run: |
         terraform plan -no-color -input=false \
-        -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}"
+        -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
+        -var="aws_access_key_id=$AWS_ACCESS_KEY_ID" \
+        -var="aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" \
+        -var="aws_session_token=$AWS_SESSION_TOKEN"
 
     # - name: Post Terraform Plan output
     #   uses: actions/github-script@v6
@@ -109,4 +112,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: |
         terraform apply -auto-approve -input=false \
-        -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}"
+        -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
+        -var="aws_access_key_id=$AWS_ACCESS_KEY_ID" \
+        -var="aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" \
+        -var="aws_session_token=$AWS_SESSION_TOKEN"
