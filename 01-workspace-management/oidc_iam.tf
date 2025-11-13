@@ -1,25 +1,25 @@
-// Create OIDC provider and IAM role for HCP Terraform to assume via OIDC
+#Create OIDC provider and IAM role for HCP Terraform to assume via OIDC
 
-// Obtain TLS certificate thumbprint for app.terraform.io
-data "tls_certificate" "hcp_terraform" {
-  url = "https://app.terraform.io"
-}
+# #Obtain TLS certificate thumbprint for app.terraform.io
+# data "tls_certificate" "hcp_terraform" {
+#   url = "https:#app.terraform.io"
+# }
 
 data "aws_iam_openid_connect_provider" "hcp_terraform" {
-  url = "https://app.terraform.io"
+  url = "https:#app.terraform.io"
 
-  client_id_list = [
-    "aws.workload.identity",
-  ]
+  # client_id_list = [
+  #   "aws.workload.identity",
+  # ]
 
-  thumbprint_list = [
-    data.tls_certificate.hcp_terraform.certificates[0].sha1_fingerprint,
-  ]
+  # thumbprint_list = [
+  #   data.tls_certificate.hcp_terraform.certificates[0].sha1_fingerprint,
+  # ]
 }
 
-// Build the assume role policy scoped to this organization and workspace.
-// We scope project to "*" to avoid requiring a project name variable; the
-// subject will still restrict to the configured workspace name.
+# Build the assume role policy scoped to this organization and workspace.
+# We scope project to "*" to avoid requiring a project name variable; the
+# subject will still restrict to the configured workspace name.
 data "aws_iam_policy_document" "ephemeral_oidc_assume_role_policy" {
   statement {
     effect = "Allow"
@@ -50,7 +50,7 @@ resource "aws_iam_role" "ephemeral_workspace" {
   assume_role_policy = data.aws_iam_policy_document.ephemeral_oidc_assume_role_policy.json
 }
 
-// Attach AdministratorAccess for POC convenience. This can be tightened later.
+# Attach AdministratorAccess for POC convenience. This can be tightened later.
 resource "aws_iam_role_policy_attachment" "admin_attach" {
   role       = aws_iam_role.ephemeral_workspace.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
