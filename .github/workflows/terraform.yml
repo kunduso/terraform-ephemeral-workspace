@@ -50,6 +50,13 @@ jobs:
           }
         }
         EOF
+    
+    - name: Upload credentials file as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: terraform-credentials
+        path: ~/.terraform.d/credentials.tfrc.json
+        
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1-node16
       with:
