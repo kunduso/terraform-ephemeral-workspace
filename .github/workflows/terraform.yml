@@ -38,24 +38,17 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
-    - name: Setup HCP Terraform credentials
+    - name: Create terraform.auto.tfvars
       run: |
-        mkdir -p ~/.terraform.d
-        cat > ~/.terraform.d/credentials.tfrc.json << EOF
-        {
-          "credentials": {
-            "app.terraform.io": {
-              "token": "${{ secrets.TF_API_TOKEN }}"
-            }
-          }
-        }
+        cat > terraform.auto.tfvars << EOF
+        tfe_token = "${{ secrets.TF_API_TOKEN }}"
         EOF
     
-    - name: Upload credentials file as artifact
+    - name: Upload tfvars file as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: terraform-credentials
-        path: ~/.terraform.d/credentials.tfrc.json
+        name: terraform-tfvars
+        path: 01-workspace-management/terraform.auto.tfvars
         
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1-node16
