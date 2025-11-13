@@ -1,11 +1,15 @@
-
-
+# Create project for ephemeral workspace
+resource "tfe_project" "ephemeral" {
+  organization = var.organization_name
+  name         = "ephemeral-workspaces"
+  description  = "Project for managing ephemeral workspaces"
+}
 #https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace
 resource "tfe_workspace" "ephemeral" {
   name                           = var.workspace_name
   organization                   = var.organization_name
   working_directory              = var.working_directory
-  project_id                     = var.project_id
+  project_id                     = tfe_project.ephemeral.id
   queue_all_runs                 = false
   file_triggers_enabled          = false
   force_delete                   = false

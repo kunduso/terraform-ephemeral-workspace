@@ -45,8 +45,6 @@ variable "tfe_token" {
   default = null
 }
 
-
-
 variable "aws_region" {
   description = "AWS region for resources"
   type        = string
