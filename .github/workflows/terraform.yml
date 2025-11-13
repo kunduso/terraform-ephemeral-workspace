@@ -109,7 +109,7 @@ jobs:
     #         body: output
     #       })
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main'
+      # if: github.ref == 'refs/heads/main'
       run: |
         terraform apply -auto-approve -input=false \
         -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
