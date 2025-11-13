@@ -118,6 +118,7 @@ jobs:
     - name: Terraform Apply
       # if: github.ref == 'refs/heads/main'
       run: |
+        TF_LOG=DEBUG \
         terraform apply -auto-approve -input=false \
         -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
         -var="aws_access_key_id=$AWS_ACCESS_KEY_ID" \
