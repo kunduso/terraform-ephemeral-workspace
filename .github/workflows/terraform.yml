@@ -114,7 +114,7 @@ jobs:
       # if: github.ref == 'refs/heads/main'
       run: |
         TF_LOG=DEBUG \
-        terraform destroy -auto-approve -input=false \
+        terraform apply -auto-approve -input=false \
         -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
         -var="aws_access_key_id=$AWS_ACCESS_KEY_ID" \
         -var="aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" \
