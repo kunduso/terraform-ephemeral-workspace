@@ -5,7 +5,7 @@ data "tls_certificate" "hcp_terraform" {
   url = "https://app.terraform.io"
 }
 
-resource "aws_iam_openid_connect_provider" "hcp_terraform" {
+data "aws_iam_openid_connect_provider" "hcp_terraform" {
   url = "https://app.terraform.io"
 
   client_id_list = [
@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "ephemeral_oidc_assume_role_policy" {
 
     principals {
       type        = "Federated"
-      identifiers = [aws_iam_openid_connect_provider.hcp_terraform.arn]
+      identifiers = [data.aws_iam_openid_connect_provider.hcp_terraform.arn]
     }
 
     condition {
