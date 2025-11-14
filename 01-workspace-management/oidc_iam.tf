@@ -2,7 +2,7 @@
 
 # #Obtain TLS certificate thumbprint for app.terraform.io
 # data "tls_certificate" "hcp_terraform" {
-#   url = "https:#app.terraform.io"
+#   url = "https://app.terraform.io"
 # }
 
 data "aws_iam_openid_connect_provider" "hcp_terraform" {
