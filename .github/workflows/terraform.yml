@@ -17,8 +17,6 @@ permissions: read-all
 
 jobs:
   terraform:
-    env:
-      TFE_TOKEN: ${{ secrets.TF_API_TOKEN }}
     name: 'hcp-terraform-workspace-management'
     runs-on: ubuntu-latest
     environment: development
@@ -45,12 +43,6 @@ jobs:
         cat > terraform.auto.tfvars << EOF
         tfe_token = "${{ secrets.TF_API_TOKEN }}"
         EOF
-    
-    - name: Upload tfvars file as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: terraform-tfvars
-        path: 01-workspace-management/terraform.auto.tfvars
         
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1-node16
@@ -81,40 +73,39 @@ jobs:
         -var="aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" \
         -var="aws_session_token=$AWS_SESSION_TOKEN"
 
-    # - name: Post Terraform Plan output
-    #   uses: actions/github-script@v6
-    #   if: github.event_name == 'pull_request'
-    #   env:
-    #     PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-    #   with:
-    #     github-token: ${{ secrets.GITHUB_TOKEN }}
-    #     script: |
-    #       const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
-    #       #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
-    #       #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
-    #       #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+    - name: Post Terraform Plan output
+      uses: actions/github-script@v6
+      if: github.event_name == 'pull_request'
+      env:
+        PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
+          #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
+          #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+          #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
 
-    #       <details><summary>Show Plan</summary>
+          <details><summary>Show Plan</summary>
 
-    #       \`\`\`\n
-    #       ${process.env.PLAN}
-    #       \`\`\`
+          \`\`\`\n
+          ${process.env.PLAN}
+          \`\`\`
 
-    #       </details>
+          </details>
 
-    #       *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+          *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
 
-    #       github.rest.issues.createComment({
-    #         issue_number: context.issue.number,
-    #         owner: context.repo.owner,
-    #         repo: context.repo.repo,
-    #         body: output
-    #       })
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: output
+          })
     - name: Terraform Apply
-      # if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/main'
       run: |
-        TF_LOG=DEBUG \
-        terraform destroy -auto-approve -input=false \
+        terraform apply -auto-approve -input=false \
         -var="oauth_token_id=${{ secrets.OAUTH_TOKEN_ID }}" \
         -var="aws_access_key_id=$AWS_ACCESS_KEY_ID" \
         -var="aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" \
