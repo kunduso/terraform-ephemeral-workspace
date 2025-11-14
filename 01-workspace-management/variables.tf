@@ -7,7 +7,7 @@ variable "organization_name" {
 variable "workspace_name" {
   description = "Name for the ephemeral workspace"
   type        = string
-  default     = "hallway-track-hashiconf-2025"
+  default     = "ws-application-01"
 }
 
 variable "auto_destroy_duration" {
@@ -31,6 +31,7 @@ variable "working_directory" {
 variable "oauth_token_id" {
   description = "OAuth token ID for GitHub VCS integration"
   type        = string
+  default     = null
 }
 
 variable "project_id" {
@@ -40,5 +41,33 @@ variable "project_id" {
 }
 
 variable "tfe_token" {
-  type = string
+  type    = string
+  default = null
+}
+
+variable "aws_region" {
+  description = "AWS region for resources"
+  type        = string
+  default     = "us-east-2"
+}
+
+variable "aws_access_key_id" {
+  description = "AWS access key ID from GitHub Actions"
+  type        = string
+  default     = null
+  sensitive   = true
+}
+
+variable "aws_secret_access_key" {
+  description = "AWS secret access key from GitHub Actions"
+  type        = string
+  default     = null
+  sensitive   = true
+}
+
+variable "aws_session_token" {
+  description = "AWS session token from GitHub Actions"
+  type        = string
+  default     = null
+  sensitive   = true
 }
