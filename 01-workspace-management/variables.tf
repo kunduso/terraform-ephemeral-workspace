@@ -48,7 +48,7 @@ variable "tfe_token" {
 variable "aws_region" {
   description = "AWS region for resources"
   type        = string
-  default     = "us-west-2"
+  default     = "us-west-1"
 }
 
 variable "aws_access_key_id" {
