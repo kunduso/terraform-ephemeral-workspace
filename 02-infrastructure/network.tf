@@ -1,6 +1,5 @@
 module "vpc" {
   source                  = "git::https://github.com/kunduso/terraform-aws-vpc.git?ref=v1.0.6"
-  # version                 = "1.0.3"
   region                  = var.region
   enable_internet_gateway = true
   vpc_cidr                = "11.22.35.0/24"
