@@ -2,7 +2,7 @@
 [![GitHub issues-closed](https://img.shields.io/github/issues-closed/kunduso/terraform-ephemeral-workspace)](https://github.com/kunduso/terraform-ephemeral-workspace/issues?q=is%3Aissue+is%3Aclosed) [![GitHub issues](https://img.shields.io/github/issues/kunduso/terraform-ephemeral-workspace)](https://GitHub.com/kunduso/terraform-ephemeral-workspace/issues/) 
 [![terraform-infra-provisioning](https://github.com/kunduso/terraform-ephemeral-workspace/actions/workflows/terraform.yml/badge.svg?branch=main)](https://github.com/kunduso/terraform-ephemeral-workspace/actions/workflows/terraform.yml) 
 # Automate HCP Terraform Ephemeral Workspaces with TFE Provider
-![Image](https://skdevops.files.wordpress.com/2025/02/111-image-0.png)
+![Image](https://skdevops.files.wordpress.com/2025/11/121-image-0.png)
 ## Introduction
 This repository demonstrates how to programmatically create and manage ephemeral workspaces in HashiCorp Cloud Platform (HCP) Terraform using the TFE provider. It provides a complete infrastructure-as-code approach for automating ephemeral workspace lifecycle management with GitHub Actions integration.
 
@@ -38,7 +38,7 @@ For comprehensive setup instructions, follow these blog posts in order:
 
 1. **[Provision AWS Resources with GitHub and HCP Terraform](http://skundunotes.com/2025/01/03/provision-aws-resources-with-github-and-hcp-terraform/)** - Learn HCP Terraform fundamentals and GitHub VCS integration
 2. **[Getting Started with Ephemeral Workspaces in HCP Terraform](https://skundunotes.com/2025/02/20/getting-started-with-ephemeral-workspaces-in-hcp-terraform/)** - Understand manual ephemeral workspace configuration
-3. **[Automate HCP Terraform Ephemeral Workspaces with TFE Provider](#)** - Complete automation guide using this repository
+3. **[Automate Ephemeral Workspaces in HCP Terraform using the TFE Provider](https://skundunotes.com/2025/11/24/automate-ephemeral-workspaces-in-hcp-terraform-using-the-tfe-provider/)** - Complete automation guide using this repository
 
 ## How It Works
 
